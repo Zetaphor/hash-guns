@@ -29,7 +29,7 @@ function generate_int(length, seed, offset, negative) {
     var hashes = Math.ceil(length / 32);
     var intHash = '';
 
-    if (offset > length) offset = length;    
+    if (offset > length) offset = length;
 
     for (var i = 0; i < (hashes); i++) {
         intHash += generate_int_hash(seed).toString();
@@ -59,10 +59,3 @@ function generate_float(seed, negative) {
     if (negative) return new_float - (new_float * 2);
     return new_float;
 }
-
-var str = 'This is a test';
-console.log('MD5: ' + md5(str));
-console.log('Int Hash: ' + generate_int_hash(str));
-console.log('Int: ' + generate_int(15, 'wee', 5, false));
-console.log('Decimal: ' + generate_dec(6, 3, 'wee', true));
-console.log('Float: ' + generate_float('45465', false));
